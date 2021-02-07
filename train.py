@@ -68,6 +68,8 @@ def main():
         model = LightCNN_29Layers(num_classes=args.num_classes)
     elif args.model == 'LightCNN-29v2':
         model = LightCNN_29Layers_v2(num_classes=args.num_classes)
+    elif args.model == 'LightCNN-29v3':
+        model = LightCNN_29Layers_v3(num_classes=args.num_classes)
     else:
         print('Error model type\n')
 
