@@ -5,7 +5,7 @@ import os
 import os.path
 
 def default_loader(path):
-    img = Image.open(path).convert('L')
+    img = Image.open(path).convert('RGB')
     return img
 
 def default_list_reader(fileList):
