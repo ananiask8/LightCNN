@@ -26,6 +26,15 @@ import cv2
 from light_cnn import LightCNN_9Layers, LightCNN_29Layers, LightCNN_29Layers_v2, LightCNN_29Layers_v3
 from load_imglist import ImageList
 
+
+"""
+python extract_features.py --resume=/path/to/your/model \
+                           --root_path=../datasets/ \
+                           --img_list=../datasets/CAS-PEAL-R1/val_list.txt \
+                           --save_path=./experiment/ \
+                           --model=LightCNN-29v3 \
+                           --num_classes=1043
+"""
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Feature Extracting')
 parser.add_argument('--arch', '-a', metavar='ARCH', default='LightCNN')
 parser.add_argument('--cuda', '-c', default=True)
@@ -72,7 +81,7 @@ def main():
     img_list  = read_list(args.img_list)
     transform = transforms.Compose([transforms.ToTensor()])
     count     = 0
-    input     = torch.zeros(1, 1, 128, 128)
+    input     = torch.zeros(1, 3, 128, 128)
     for img_name in img_list:
         count = count + 1
         img   = cv2.imread(os.path.join(args.root_path, img_name), cv2.IMREAD_GRAYSCALE)

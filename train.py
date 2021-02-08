@@ -23,6 +23,11 @@ import numpy as np
 from light_cnn import LightCNN_9Layers, LightCNN_29Layers, LightCNN_29Layers_v2, LightCNN_29Layers_v3
 from load_imglist import ImageList
 
+"""
+python train.py --root_path=../datasets --train_list=../datasets/CAS-PEAL-R1/train_list.txt \
+                --val_list=../datasets/CAS-PEAL-R1/val_list.txt --save_path=./experiment/  \
+                --num_classes=1043 --model=LightCNN-29v3 --batch-size 1 --lr 0.0001
+"""
 parser = argparse.ArgumentParser(description='PyTorch Light CNN Training')
 parser.add_argument('--arch', '-a', metavar='ARCH', default='LightCNN')
 parser.add_argument('--cuda', '-c', default=True)
