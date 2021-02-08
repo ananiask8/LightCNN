@@ -3,9 +3,13 @@ import torch.utils.data as data
 from PIL import Image
 import os
 import os.path
+import numpy as np
+
 
 def default_loader(path):
-    img = Image.open(path).convert('RGB')
+    # img = Image.open(path).convert('RGB')
+    img = np.repeat(np.array(Image.open(path).convert('L'))[:, :, None], 3, axis=2)
+    img = Image.fromarray(img)
     return img
 
 def default_list_reader(fileList):
